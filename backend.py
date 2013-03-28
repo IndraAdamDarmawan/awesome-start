@@ -35,14 +35,14 @@ class Backend(db.Model):
   def add(apikey, model, data):
     #update ModelCount when adding
     jsonString = data
-    entity = Backend(apikey=apikey,
+    """entity = Backend(apikey=apikey,
                     model=model,
                     jsonString=jsonString)
     
     entity.put()
     modelCount = ModelCount.all().filter('apikey',apikey).filter('model', model).get()
     if modelCount:
-      modelCount.count += 1
+      modelCount.count += 1"""
       modelCount.put()
     else:
       modelCount = ModelCount(apikey=apikey, model=model, count=1)
